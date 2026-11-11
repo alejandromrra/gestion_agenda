@@ -1,30 +1,22 @@
-# Totalum project
+# Agenda de bodas · Morelia
 
-A Next.js 16 app built with [Totalum](https://totalum.app). It runs on Cloudflare Workers; its data is a D1 (SQLite)
-database used through Drizzle ORM (`src/db/`), with better-auth for accounts (`src/lib/auth.ts`).
+Agenda interna para que la organizadora y su asistente coordinen los turnos de cada pareja con sus profesionales en un solo calendario, sin choques de horario.
 
-## Run locally
+## Cómo correrlo
+1. `npm install`
+2. `npm run dev` y abrir http://localhost:3100
+3. Escribir la clave del panel y pulsar «Entrar».
 
-You need Node 22 and npm. On Linux, the local Workers runtime needs glibc 2.35 or newer (Ubuntu 22.04, Debian 12).
+## Clave del panel
+Está en `src/lib/clave.ts` (`CLAVE_PANEL`, por defecto `morelia2026`). Para cambiarla, edita ese texto y guarda. Es una barrera sencilla para uso interno: no sustituye a una cuenta de usuario.
 
-1. Download the source code and its `.env` from Totalum (with the VCaaS API: `GET /api/v1/vcaas/projects/<id>/source-code`
-   and `GET …/github/env`, whose `envDev` is the file), and put the `.env` in the project folder.
-2. `npm ci`
-3. `npm run dev`, then open <http://localhost:3100> (`PORT=4000 npm run dev` for another port).
+## Datos
+- Los turnos se guardan en el navegador (`localStorage`, clave `agenda-bodas-morelia:v1`). No hay cuentas ni servidor de datos.
+- Profesionales y tipos de turno están en `src/lib/agenda.ts`.
+- **Datos sintéticos:** la primera vez que se abre (cuando la clave no existe) se cargan parejas y turnos inventados, siempre alrededor de la semana en curso. Una lista vacía guardada no se considera primera visita.
+- Incluyen: una tanda de degustación completa, otra con «Quedan 2 lugares», el lunes de la próxima semana con «Día completo» para Renata, un turno cancelado y un Pendiente con fecha pasada («Sin confirmar»).
+- «Restaurar ejemplo» (arriba) pide confirmación y repone solo los datos de esta agenda.
+- Si el navegador no puede guardar, aparece un aviso y lo escrito se conserva en pantalla sin cambiar estados.
 
-`npm run dev` first applies the migrations in `drizzle/` to the database it serves: with `TOTALUM_ENV=dev` and a
-`TOTALUM_PROJECT_KEY` (the `.env` above), your project's dev database on Totalum, the one the preview shows, so rows
-you create there appear in the preview too; otherwise (a project without a dev database, or no key) a local database
-in `.wrangler/`, which never reaches Totalum (to start it again empty, stop the server and delete `.wrangler/state`).
-
-The built-in integrations (e-mail, AI, files, …) call Totalum with `TOTALUM_PROJECT_KEY` from `.env` and are billed
-to your project as usual. Without a key the app still runs, and only those calls fail with `SDK_NOT_CONFIGURED`.
-
-## Commands
-
-- `npm run db:generate`: after you change `src/db/schema.ts`, writes the next migration to `drizzle/`. The next
-  `npm run dev` applies it (or run `npm run db:migrate`, or `npm run db:migrate -- --local` for the local database).
-- `npm run db:migrate`: applies the migrations to the project's database on Totalum, the one `TOTALUM_ENV` in `.env`
-  selects (`dev` or `live`).
-- `npm run build:preview`: the Cloudflare Workers build Totalum deploys. `npx wrangler dev` then serves that build on
-  <http://localhost:8787> in the Workers runtime, on the local database in `.wrangler/`.
+## Reglas
+Turnos cada 30 min dentro del horario, terminando antes del cierre; sin superponer turnos Pendiente/Confirmado/Realizado del mismo profesional; tope diario por fecha (cancelar libera); degustación en tandas de 3 que ocupan un solo horario y un solo cupo del chef.

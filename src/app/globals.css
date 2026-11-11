@@ -4,6 +4,10 @@
 @theme {
   --color-brand: oklch(0.55 0.2 260);
   --color-accent: oklch(0.75 0.15 70);
+  --color-marfil: #faf5ea;
+  --color-cuero: #4a2f22;
+  --color-cempasuchil: #d9741a;
+  --color-cantera: #dcaa97;
 }
 
 /*
