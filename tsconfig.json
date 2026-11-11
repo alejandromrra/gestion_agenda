@@ -13,40 +13,9 @@
     "allowJs": true,
     "jsx": "react-jsx",
     "incremental": true,
-    "types": ["node", "@cloudflare/workers-types/experimental"],
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    "plugins": [{ "name": "next" }],
+    "paths": { "@/*": ["./src/*"] }
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "**/*.mjs",
-    ".next/types/**/*.ts",
-    ".next/dev/types/**/*.ts",
-    ".next/dev/dev/types/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "worker.ts",
-    ".next",
-    ".open-next",
-    "_system-docs",
-    "test/workerd",
-    "android",
-    "ios",
-    "capacitor.config.ts",
-    "capacitor.config.*.ts",
-    "mobile",
-    "store",
-    "out",
-    ".next-mobile",
-    "mobile-artifacts"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", ".next/dev/types/**/*.ts"],
+  "exclude": ["node_modules", ".next", "out"]
 }
