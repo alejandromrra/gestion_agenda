@@ -1,8 +1,8 @@
 import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
 
-import '@fontsource-variable/fraunces';
-import '@fontsource-variable/inter';
+import '@fontsource-variable/cormorant-garamond';
+import '@fontsource-variable/nunito-sans';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -16,7 +16,7 @@ export const viewport: Viewport = { width: 'device-width', initialScale: 1 };
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="es">
-      <body className="min-h-dvh bg-marfil font-sans text-cuero antialiased">{children}</body>
+      <body className="min-h-dvh bg-marfil font-sans text-tinta antialiased">{children}</body>
     </html>
   );
 }

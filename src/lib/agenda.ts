@@ -14,10 +14,10 @@ export const ESTADOS: Estado[] = ['Pendiente', 'Confirmado', 'Realizado', 'Cance
 
 // dias: 0 = domingo … 6 = sábado
 export const PROFESIONALES: Profesional[] = [
-  { id: 'renata', nombre: 'Renata Villaseñor', rol: 'coordinadora', dias: [1, 2, 3, 4, 5], horaInicio: '10:00', horaFin: '18:00', tope: 4, color: '#8a5a44' },
-  { id: 'ulises', nombre: 'Ulises Cárdenas', rol: 'chef', dias: [4, 6], horaInicio: '12:00', horaFin: '18:00', tope: 2, color: '#5f7a4f' },
+  { id: 'renata', nombre: 'Renata Villaseñor', rol: 'coordinadora', dias: [1, 2, 3, 4, 5], horaInicio: '10:00', horaFin: '18:00', tope: 4, color: '#7a3b2e' },
+  { id: 'ulises', nombre: 'Ulises Cárdenas', rol: 'chef', dias: [4, 6], horaInicio: '12:00', horaFin: '18:00', tope: 2, color: '#3e5c50' },
   { id: 'ximena', nombre: 'Ximena Olmos', rol: 'maquillista', dias: [2, 3, 4, 5, 6], horaInicio: '09:00', horaFin: '17:00', tope: 3, color: '#a1556b' },
-  { id: 'emiliano', nombre: 'Emiliano Tapia', rol: 'fotógrafo', dias: [3, 4, 5, 6, 0], horaInicio: '08:00', horaFin: '16:00', tope: 2, color: '#3f6b7a' },
+  { id: 'emiliano', nombre: 'Emiliano Tapia', rol: 'fotógrafo', dias: [3, 4, 5, 6, 0], horaInicio: '08:00', horaFin: '16:00', tope: 2, color: '#3f6b8a' },
   { id: 'paloma', nombre: 'Paloma Quiroz', rol: 'coreógrafa', dias: [1, 3, 5], horaInicio: '16:00', horaFin: '21:00', tope: 4, color: '#7a5c8f' },
 ];
 

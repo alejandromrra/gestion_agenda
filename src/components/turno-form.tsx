@@ -6,8 +6,8 @@ import {
   PROFESIONALES, TIPOS, fechaCorta, horarios, tandasAbiertas, tipoDe, type Estado, type Turno,
 } from '@/lib/agenda';
 
-const campo = 'mt-1 w-full rounded-lg border border-cuero/25 bg-white px-3 py-2.5 text-base text-cuero focus:border-cempasuchil focus:outline-none focus:ring-2 focus:ring-cempasuchil/30 disabled:bg-stone-100';
-const etiqueta = 'block text-sm font-medium text-cuero';
+const campo = 'mt-1 w-full rounded-lg border border-cuero/25 bg-white px-3 py-2.5 text-base text-tinta focus:border-cempasuchil focus:outline-none focus:ring-2 focus:ring-cempasuchil/30 disabled:bg-stone-100';
+const etiqueta = 'block text-sm font-medium text-tinta';
 
 export function TurnoForm({ turnos, inicial, fechaIni, onSave, onClose }: {
   turnos: Turno[]; inicial?: Turno; fechaIni: string; onSave: (t: Turno) => void; onClose: () => void;
@@ -47,7 +47,7 @@ export function TurnoForm({ turnos, inicial, fechaIni, onSave, onClose }: {
         <select id="tipo" className={campo} value={tipoN} onChange={(e) => { setTipoN(e.target.value); setProfId(''); setHora(''); setTandaSel(''); }}>
           {TIPOS.map((t) => <option key={t.nombre}>{t.nombre}</option>)}
         </select>
-        <p className="mt-1 text-sm text-cuero/70">{tipo.duracionMin} min · {tipo.precioMXN ? `$${tipo.precioMXN.toLocaleString('es-MX')} MXN` : 'Sin costo'}</p>
+        <p className="mt-1 text-sm text-tinta/70">{tipo.duracionMin} min · {tipo.precioMXN ? `$${tipo.precioMXN.toLocaleString('es-MX')} MXN` : 'Sin costo'}</p>
       </div>
       <div>
         <label className={etiqueta} htmlFor="prof">Profesional</label>
@@ -76,7 +76,7 @@ export function TurnoForm({ turnos, inicial, fechaIni, onSave, onClose }: {
             {info.slots.map((h) => <option key={h}>{h}</option>)}
           </select>
           {info.completo && <p className="mt-1 text-sm font-medium text-red-800">Día completo</p>}
-          {info.noLabora && <p className="mt-1 text-sm text-cuero/70">{prof.nombre} no trabaja el {fechaCorta(fecha)}.</p>}
+          {info.noLabora && <p className="mt-1 text-sm text-tinta/70">{prof.nombre} no trabaja el {fechaCorta(fecha)}.</p>}
           {!info.completo && !info.noLabora && !info.slots.length && <p className="mt-1 text-sm text-red-800">No quedan horarios libres ese día.</p>}
         </div>
       )}
@@ -92,7 +92,7 @@ export function TurnoForm({ turnos, inicial, fechaIni, onSave, onClose }: {
       </div>
       <div className="flex gap-3 pt-2">
         <button type="submit" disabled={!valido} className="flex-1 rounded-lg bg-cempasuchil px-4 py-3 font-semibold text-white shadow-sm hover:brightness-95 disabled:opacity-40">Guardar</button>
-        <button type="button" onClick={onClose} className="rounded-lg border border-cuero/25 px-4 py-3 font-medium text-cuero hover:bg-cantera/20">Cerrar</button>
+        <button type="button" onClick={onClose} className="rounded-lg border border-cuero/25 px-4 py-3 font-medium text-tinta hover:bg-cantera/20">Cerrar</button>
       </div>
     </form>
   );

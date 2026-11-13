@@ -1,15 +1,23 @@
 @import 'tailwindcss';
 
-/* Carpeta de cuero: cempasúchil y cantera rosada sobre marfil. */
+/* Identidad visual: terracota, marfil, naranja cempasúchil, cantera rosada, verde pino y tinta. */
 @theme {
-  --color-marfil: #faf5ea;
-  --color-cuero: #4a2f22;
-  --color-cempasuchil: #d9741a;
-  --color-cantera: #dcaa97;
+  --color-cuero: #7a3b2e; /* terracota: cabecera, acentos y bordes */
+  --color-marfil: #fbf4e9; /* fondo */
+  --color-cempasuchil: #e8891c; /* acción principal */
+  --color-cantera: #c9a08e; /* detalles suaves */
+  --color-pino: #3e5c50; /* confirmado / éxito */
+  --color-tinta: #2a2522; /* texto */
 }
 
 /* Fuentes autoalojadas (@fontsource-variable): no hace falta red para compilar. */
 @theme {
-  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
-  --font-display: 'Fraunces Variable', Georgia, serif;
+  --font-sans: 'Nunito Sans Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Cormorant Garamond Variable', Georgia, serif;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
 }
