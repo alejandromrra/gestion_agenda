@@ -1,21 +1,15 @@
 @import 'tailwindcss';
 
-/* The project's design tokens (colours, radius): see _system-docs/design.md. */
+/* Carpeta de cuero: cempasúchil y cantera rosada sobre marfil. */
 @theme {
-  --color-brand: oklch(0.55 0.2 260);
-  --color-accent: oklch(0.75 0.15 70);
   --color-marfil: #faf5ea;
   --color-cuero: #4a2f22;
   --color-cempasuchil: #d9741a;
   --color-cantera: #dcaa97;
 }
 
-/*
- * Fonts: load them in layout.tsx with next/font (`variable: '--font-body'` / `'--font-heading'`) and put both
- * `.variable` classes on <html>; `font-sans` and `font-display` then use them. Keep this block `inline`: a font
- * mapped in the plain @theme block is computed on :root, before the variable exists, and never shows.
- */
-@theme inline {
-  --font-sans: var(--font-body, ui-sans-serif), system-ui, sans-serif;
-  --font-display: var(--font-heading, var(--font-body, ui-sans-serif)), system-ui, sans-serif;
+/* Fuentes autoalojadas (@fontsource-variable): no hace falta red para compilar. */
+@theme {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Fraunces Variable', Georgia, serif;
 }
